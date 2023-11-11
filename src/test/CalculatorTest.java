@@ -1,6 +1,7 @@
-package seminars.seminarOne.calculator;
-
+import org.junit.jupiter.api.Test;
 import seminars.seminarOne.calculator.Calculator;
+
+import java.util.concurrent.Callable;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -78,5 +79,38 @@ public class CalculatorTest {
         // }
         //   assert 0 == seminars.first.Calculator.Calculator.calculation(2, 6, '+');
         //    assertThat(seminars.first.Calculator.Calculator.calculation(2, 6, '+')).isEqualTo(0);
+
+
+    }
+    @Test
+    void evaluatesExpression(){
+        Calculator calculator = new Calculator();
+        assertThat(calculator.calculation(2,2,'+')).isEqualTo(4);
+    }
+
+    @Test
+    void substractionExpression(){
+        Calculator calculator = new Calculator();
+        assertThat(calculator.calculation(3,2,'-')).isEqualTo(1);
+    }
+
+    @Test
+    void multiplicationExpression(){
+        Calculator calculator = new Calculator();
+        assertThat(calculator.calculation(2,3,'*')).isEqualTo(6);
+    }
+
+    @Test
+    void divisionExpression(){
+        Calculator calculator = new Calculator();
+        assertThat(calculator.calculation(28,2,'/')).isEqualTo(14);
+    }
+
+    @Test
+    void expectedIllegalStateExceptionOnInvalidOperatorSymbol(){
+      Calculator calculator = new Calculator();
+      assertThatThrownBy(() -> calculator.calculation(8,4,'_'))
+              .isInstanceOf(IllegalStateException.class);
+
     }
 }
