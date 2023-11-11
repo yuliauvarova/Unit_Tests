@@ -10,11 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VehicleTest {
 
-    //@BeforeAll
-    //static void createCar(){
         Car car = new Car("VW", "Beatle", 1970);
         Motorcycle motorcycle = new Motorcycle("Harley", "Davidson", 2000);
-    //}
+
 
 
     @Test
